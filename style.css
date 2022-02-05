@@ -1,0 +1,109 @@
+*{
+    margin: 0;padding: 0;box-sizing: border-box;
+}
+:root{
+    --bgcolor: transparent;
+    --col: rgb(92, 179, 255);
+    --center_color:rgba(51, 117, 238, 0.658);
+    --center_bg:rgb(23, 23, 124);
+}
+*::selection{
+    background-color:rgb(4, 9, 51);
+    color: var(--col);
+}
+html{font-size: 62.5%;}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--col);
+    background-color: rgb(7, 12, 54);
+    font-family: cursive,serif;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: hidden;
+}
+/* MAIN STYLES */
+.center_div{
+    min-width: 50%;
+    /* min-height: 50vh; */
+    display: flex;
+    flex-direction: column;
+    border-radius: 2rem;
+    margin: 1rem;
+    background-color: rgb(23, 23, 124);
+    box-shadow: .2rem .2rem .5rem 0 rgba(51, 117, 238, 0.658);
+}
+/* HEADING STYLES */
+.calc_heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+.calc_heading h2{
+    letter-spacing: 10px;
+    font-size: 2rem;
+}
+/* INPUT CONTAINER STYLES */
+.calculator{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem 2rem;
+    padding: 2rem 0;
+    max-width: 100%;
+}
+/* INPUT & RESULT STYLES */
+.calc_input,
+.calc_result{
+    min-height: inherit;
+    min-width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding:1%;
+    margin-bottom: 10px;
+}
+/* SELECT AND OPTION STYLES */
+select,input{
+    min-width:100%;
+    margin-bottom:1rem;
+    min-height: 3rem;
+    text-align: center;
+    background-color: var(--bgcolor);
+    border: none;
+    outline: none;
+    color:var(--col);
+    letter-spacing: 3px;
+    font-size: 1.5rem;
+}
+select{
+    appearance: none;
+}
+option{
+    background-color: rgb(23, 23, 124);
+    color:var(--col);
+    border: none;
+    outline: none;
+}
+/* CHECK BUTTON */
+#btn{
+    min-width: inherit;
+    font-size:1.5rem;
+    border-radius:10px;
+    letter-spacing: 2px;
+    margin: 1rem 0 0 0;
+    padding: 0 2rem;
+    outline: none;
+    border: none;
+    background-color: rgba(2, 0, 27, 0.774);
+}   
+#btn:hover{
+    background-color: rgb(2, 0, 27);
+    font-weight: bold;
+}
+/* MEDIA QUERIES */

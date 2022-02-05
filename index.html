@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="reload" content="60">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OASIS Temp Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="oasis.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="center_div">
+        <div class="calc_heading">
+            <h2> OASIS TempCal </h2>
+        </div>
+        <div class="calculator">
+            <div class="calc_input">
+                <select name="fomrat_check" id="iformat">
+                    <option value="c">Celsius</option>
+                    <option value="f">Fahrenheit</option>
+                    <option value="k">Kelvin</option>
+                </select>
+                <input type="text" id="inval" value="0" />
+            </div>
+            <div class="calc_result">
+                <select name="fomrat_check" id="oformat">
+                    <option value="c">Celsius</option>
+                    <option value="f">Fahrenheit</option>
+                    <option value="k">Kelvin</option>
+                </select>
+                <input type="text" id="outval" value="0" />
+            </div>
+            <div class="submit_btn">
+                <input type="submit" id="btn" value=" Check it " />
+            </div>
+        </div>
+    </div>
+    <script>
+        // cel to Fah : cel*1.8+32
+        // cel to kel : cel+273.15
+        // kel to cel : K−273.15
+        // kel to fah : (K-273.15)×9/5+32
+        // fah to cel : (fah-32)*5/9
+        // fah to kel : (fah-32)×5/9+273.15
+
+
+        document.getElementById('btn').addEventListener('click',
+            () => {
+                let informat = document.getElementById('iformat').value;
+                let outformat = document.getElementById('oformat').value;
+                let inval = document.getElementById('inval').value;
+
+                let outval=0;
+                if ((informat == "c" && outformat == "c") || (informat == "k" && outformat == "k") || (informat == "f" && outformat == "f")) {
+                    outval= inval;
+                }
+                else if (informat == "c" && outformat == "f") { outval = (inval * 1.8) + 32; }
+                else if (informat == "c" && outformat == "k") { outval = inval + 273.75; }
+                else if (informat == "k" && outformat == "c") { outval = inval - 273.15; }
+                else if (informat == "k" && outformat == "f") { outval = ((inval - 273.15) * 9 / 5) + 32; }
+                else if (informat == "f" && outformat == "c") { outval = (inval - 32) * 5 / 9; }
+                else { outval = ((inval - 32) * 5 / 9) + 273.15; }
+                document.getElementById('outval').value=Math.floor(outval);
+            }
+        )
+    </script>
+</body>
+
+</html>
